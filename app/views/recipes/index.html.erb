@@ -1,0 +1,35 @@
+<h1 class="center">Recipe Hunter</h1>
+
+<div class="center">	
+	<form action="<%= root_path %>" method="GET">
+		<%= text_field_tag :search, params[:search], placeholder: "Search recipes" %>
+		<%= submit_tag "Search", name: nil %>
+	</form>
+</div>
+
+<% if @recipes.empty? %>
+<div class="empty">
+	<h1 class="center">>:(</h1>
+	<h3 class="center">A sea full of recipes and you ended up here? Try again!</h3>
+</div>
+<% else %>
+<table class="striped highlight centered">
+	<thead>			
+		<tr>
+			<th>Thumbnail</th>
+			<th>Title</th>
+			<th>Social Rank</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @recipes.each do |recipe| %>
+		<tr>
+			<td><%= link_to( image_tag(recipe["image_url"], height: '100', width: '100') , recipe['source_url']) %></td>
+			<td><%= link_to(sanitize(recipe["title"]), recipe['source_url']) %></td>
+			<td><%= recipe["social_rank"].round(2) %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<% end %>
