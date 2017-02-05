@@ -2,7 +2,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   ENV['FOOD2FORK_SERVER_AND_PORT']='www.food2fork.com'
-  ENV['FOOD2FORK_KEY']='48f55fff-601f-4f3d-8a27-4393afc71da7'
+  ENV['FOOD2FORK_KEY']='c1d4db8a5561c6b25d125a14c3602922'
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
